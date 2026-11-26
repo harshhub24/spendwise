@@ -6,7 +6,7 @@
    Same-origin hosting (backend serves this frontend):
      leave it as "". */
 
-window.SPENDWISE_API_BASE = "PASTE_YOUR_RENDER_BACKEND_URL_HERE";
+window.SPENDWISE_API_BASE = "https://expense-tracker-backend-czei.onrender.com";
 
 if (window.SPENDWISE_API_BASE.includes("PASTE_YOUR")) {
   console.warn(
