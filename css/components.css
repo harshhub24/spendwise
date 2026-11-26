@@ -1,0 +1,63 @@
+/* ============================================================
+   SPENDWISE — components: modals, toasts, empty states, skeleton
+   ============================================================ */
+
+.modal {
+  width: min(520px, calc(100vw - 26px)); max-height: min(92dvh, 780px);
+  padding: 24px; border: 1px solid var(--line); border-radius: 18px;
+  color: var(--text); background: var(--surface); box-shadow: var(--shadow-pop);
+  overscroll-behavior: contain;
+}
+.modal[open] { animation: modal-in .24s cubic-bezier(.22, .9, .26, 1); }
+@keyframes modal-in { from { opacity: 0; transform: translateY(10px) scale(.985); } to { opacity: 1; transform: none; } }
+.modal::backdrop { background: rgba(8, 11, 17, .62); backdrop-filter: blur(3px); }
+.small-modal { width: min(430px, calc(100vw - 26px)); }
+.modal-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; margin-bottom: 18px; }
+.modal-heading h2 { font-size: 20px; }
+.modal form > label, .modal > label { display: block; margin-bottom: 14px; color: var(--text-2); font-size: 12px; font-weight: 600; }
+.modal input, .modal select, .modal textarea {
+  display: block; width: 100%; margin-top: 6px; min-height: 42px;
+  padding: 10px 12px; font-size: 13px; font-weight: 500; color: var(--text);
+}
+.modal textarea { resize: vertical; }
+.compact-wrap input { margin-top: 0; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 12px; }
+.modal-actions { display: flex; justify-content: flex-end; gap: 9px; margin-top: 18px; }
+.modal-copy { margin: -8px 0 18px; font-size: 12.5px; line-height: 1.6; }
+
+/* ---------- toasts ---------- */
+.toast-region {
+  position: fixed; right: 20px; bottom: 20px; z-index: 60;
+  display: flex; flex-direction: column; gap: 8px;
+  width: min(340px, calc(100vw - 32px));
+}
+.toast {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 14px; border: 1px solid var(--line); border-radius: 12px;
+  color: var(--text); background: var(--surface); box-shadow: var(--shadow-pop);
+  font-size: 12.5px; font-weight: 500; animation: toast-in .24s cubic-bezier(.22, .9, .26, 1);
+}
+.toast i { color: var(--accent); font-size: 13px; margin-top: 1px; }
+.toast.error { border-color: var(--danger); }
+.toast.error i { color: var(--danger); }
+@keyframes toast-in { from { opacity: 0; transform: translateX(14px); } to { opacity: 1; transform: none; } }
+
+/* ---------- empty states ---------- */
+.empty-state { padding: 40px 16px 46px; text-align: center; }
+.empty-state.slim { padding: 26px 10px 32px; }
+.empty-state h3 { margin: 12px 0 4px; font-family: var(--font-display); font-size: 14.5px; }
+.empty-state p { margin: 0 auto; color: var(--text-2); font-size: 11.5px; max-width: 260px; }
+.empty-illustration {
+  display: grid; place-items: center; margin: auto; height: 52px; width: 52px;
+  border-radius: 16px; color: #6366f1; background: rgba(99, 102, 241, .12); font-size: 19px;
+}
+[data-theme="dark"] .empty-illustration { color: #a5b4fc; }
+
+/* ---------- skeleton ---------- */
+.skeleton-row td { padding: 17px 10px; }
+.skeleton {
+  display: block; width: 100%; height: 24px; border-radius: 8px;
+  background: linear-gradient(90deg, var(--surface-2), var(--surface-3), var(--surface-2));
+  background-size: 200% 100%; animation: shimmer 1.3s infinite;
+}
+@keyframes shimmer { to { background-position: -200% 0; } }
